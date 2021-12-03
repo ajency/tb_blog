@@ -1,6 +1,7 @@
 /* header menu toggle */
-$(".toggler-open").click(function(e) {
+$(".hamburger").click(function(e) {
     e.preventDefault();
+	$(this).toggleClass("toggle-close");
     $("header .mobile-menu-container").toggleClass("show");
     $("body").toggleClass("pushed-menu");
 });

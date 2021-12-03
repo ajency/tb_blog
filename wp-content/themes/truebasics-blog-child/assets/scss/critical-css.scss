@@ -82,6 +82,7 @@ body{
                                 margin:0;
                                 li{
                                     padding: 13px;
+                                    line-height: 100%;
         
                                     a{
                                         font-size: 12px;
@@ -106,6 +107,7 @@ body{
                     align-items: center;
                     justify-content: space-between;
                     padding: 18px 0 25px;
+                    background: #fff;
                     .hamburger{
                         display: none;
                     }
@@ -116,6 +118,13 @@ body{
                     }
                     .main-header-menu-right{
                         display: flex;
+
+                        @media(min-width:768px){
+                            flex-grow: 1;
+                            #quadmenu{
+                                margin-right: 0;
+                            }
+                        }
                     }
                     .search-toogle{
                         padding: 0 15px;
@@ -153,6 +162,9 @@ body{
                         }
                     }
                 }
+                .featuredpost article{
+                    padding:0 20px 0px 20px !important;
+                }
             }
             .mobile-menu-container{
                 display: none;
@@ -170,24 +182,38 @@ body{
                     .main-header{
                         padding: 8px 0 15px;
                         justify-content: center;
+                        z-index: 99999;
                         .hamburger{
-                                display: block;
-                                position: absolute;
-                                left: 0;
-                                    margin-right: 10px;
-                                    &:hover,
-                                    &:focus{
-                                        cursor: pointer;
-                                    }
-                                    .top-line,
-                                    .mid-line,
-                                    .bot-line{
-                                        background: #393939;
-                                        color: #393939;
-                                        width: 1.7rem;
-                                        height: 2.36px;
-                                        margin: 6px;
-                                    }
+                            display: block;
+                            position: absolute;
+                            left: 0;
+                                margin-right: 10px;
+                                &:hover,
+                                &:focus{
+                                    cursor: pointer;
+                                }
+                                .top-line,
+                                .mid-line,
+                                .bot-line{
+                                    background: #393939;
+                                    color: #393939;
+                                    width: 1.7rem;
+                                    height: 2.36px;
+                                    margin: 6px;
+                                    transition: transform 250ms ease-in-out, opacity 250ms ease-in-out;
+                                }
+                            &.toggle-close{
+                                .top-line{
+                                    transform: rotate(-45deg) translate3d(-8px, 8px, 0px);
+                                }
+                                .bot-line{
+                                    transform: rotate(45deg) translate3d(-4px, -4px, 0px);
+                                }
+                                .mid-line{
+                                    opacity: 0;
+                                    transform:translate3d(-4px, 0px, 0px);
+                                }
+                            }
                         }
                         .main-header-menu-right{
                                 display: none;
@@ -195,16 +221,23 @@ body{
                     }
                 }
                 .mobile-menu-container{
-                    padding:0 16px;
+                    padding: 71px 16px 20px;
                     display: block;
                     position: fixed;
                     width: 100%;
+                    top:0;
                     left: -100%;
                     overflow: hidden;
                     background: #fff;
                     height: 100vh;
                     overflow-y: scroll;
                     transition: left 250ms ease-in-out;
+
+                    #quadmenu{
+                        .quadmenu-dropdown-menu{
+                            padding:0 !important;
+                        }
+                    }
         
                     &.show{
                         left:0;

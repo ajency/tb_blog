@@ -102,7 +102,7 @@ do_action( 'genesis_after_header' );
 		</div>
 		<div class="main-header">
 			<!--Toggle Start -->
-			<div id="togglerBtn" class="hamburger toggler-open">
+			<div id="togglerBtn" class="hamburger">
 				<div class="top-line"></div>
 				<div class="mid-line"></div>
 				<div class="bot-line"></div>
