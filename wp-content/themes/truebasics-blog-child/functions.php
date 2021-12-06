@@ -9,8 +9,9 @@
  * @license GPL-2.0-or-later
  * @link    https://www.studiopress.com/
  */
-
+require_once get_stylesheet_directory() . "/incs/init.php";
 // Starts the engine.
+
 require_once get_template_directory() . '/lib/init.php';
 
 // Sets up the Theme.
