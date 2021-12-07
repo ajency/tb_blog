@@ -1,0 +1,105 @@
+/* latest and trending articles */
+.latest-articles{
+    &-single{
+        background-color: theme-color("gray-bg-1");
+        
+        &-container{
+            display: flex;
+            align-items: center;
+        }
+        &-image{
+            width: 55%;
+            height: 498px;
+            img{
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        &-content{
+            width: 45%;
+            .content-title{
+                margin-bottom: 5px;
+				.title{
+                    line-height: 45px;
+                    margin: 0;
+                    a {
+                        font-size: 35px;
+                        font-family: 'nexa-bold';
+                        color: theme-color("text-1");
+                    }
+                }
+            }
+            .content-description{
+                font-size: 20px;
+                line-height: 32px;
+            }
+            .action-btn{
+                margin-top: 20px;
+            }
+        }
+        &:nth-child(even){
+            .latest-articles-single-content{
+                padding-right:57px;
+            }
+            .latest-articles-single-content{
+                padding-left:57px;
+            }
+        }
+        &:nth-child(odd){
+            .latest-articles-single-container{
+                flex-direction: row-reverse;
+            }
+            .latest-articles-single-content{
+                padding-right:57px;
+            }
+        }
+        &:not(:last-child){
+            margin-bottom:20px;
+        }
+    }
+    @media(max-width:768px){
+        .wraper{
+            padding: 0 16px;
+        }
+        &-single{
+            &-container{
+                flex-direction: column-reverse;
+                margin: 0 !important;
+            }
+            &-image, &-content{
+                width: 100%;
+            }
+            &-image{
+                height: 190px;
+            }
+            &:nth-child(odd), &:nth-child(even){
+                .latest-articles-single-content{
+                    padding :0;
+                }
+            }
+            &:nth-child(odd), &:nth-child(even){
+                .latest-articles-single-container{
+                    flex-direction: column-reverse;
+                }
+            }
+            &-content{
+                padding: 36px 31px 36px 14px !important;
+                .content-title{
+                    .title{
+                        line-height: 25px;
+                        a {
+                            font-size: 20px;
+                        }
+                    }
+                }
+                .content-description{
+                    font-size: 14px;
+                    line-height: 18px;
+                }
+            }
+            &:not(:last-child){
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

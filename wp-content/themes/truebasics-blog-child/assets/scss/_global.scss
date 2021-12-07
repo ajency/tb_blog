@@ -1,6 +1,23 @@
-.container{
-    @media (min-width: 1200px){
-        max-width: 1166px;
-        padding: 0;
-    }
+/* fonts*/
+@font-face {
+    font-family: 'nexa-bold';
+    src: url('../fonts/nexa-bold.eot');
+    src: url('../fonts/nexa-bold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/nexa-bold.woff') format('woff'),
+         url('../fonts/nexa-bold.ttf')  format('truetype'),
+         url('../fonts/nexa-bold.svg') format('svg');
+         	font-style: normal;
+            font-weight: normal;
+	        font-display:swap;
+}
+@font-face {
+    font-family: 'nexa-light';
+    src: url('../fonts/nexa-light.eot');
+    src: url('../fonts/nexa-light.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/nexa-light.woff') format('woff'),
+         url('../fonts/nexa-light.ttf')  format('truetype'),
+         url('../fonts/nexa-light.svg') format('svg');
+         	font-style: normal;
+            font-weight: normal;
+	        font-display:swap;
 }
