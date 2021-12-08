@@ -1,4 +1,4 @@
-<div class="latest-articles mb-5">
+<div class="latest-articles">
     <div class="container section-heading latest-articles-title">Latest & Trending Articles</div>
         <div class="wraper">
         <?php
