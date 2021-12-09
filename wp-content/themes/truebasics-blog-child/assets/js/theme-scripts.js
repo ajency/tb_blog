@@ -10,7 +10,7 @@ $(window).on('load resize', function () {
 });
 
 /* explore articles section */
-/* $(".category-buttons-single").click(function(){
+$(".category-buttons-single").click(function(){
     var button = $(this);
     if(!button.hasClass('category-buttons-single-active')){
         $.ajax({ 
@@ -36,7 +36,7 @@ $(window).on('load resize', function () {
             }
         });
     }
-}) */
+})
 
 /* single component */
 $(".article-single .article-single-image a").hover(function(){
