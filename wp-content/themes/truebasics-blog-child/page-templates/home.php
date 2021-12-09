@@ -20,6 +20,7 @@ get_header();
 		get_template_part( 'page-templates/theme-sections/top-categories', 'section' );
 		get_template_part( 'page-templates/theme-sections/latest-trending-articles', 'section' );
 		get_template_part( 'page-templates/theme-sections/explore-articles', 'section' );
+		get_template_part( 'page-templates/theme-sections/more-articles', 'section' );
 	?>
 </div>
 

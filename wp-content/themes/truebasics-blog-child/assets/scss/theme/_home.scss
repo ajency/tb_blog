@@ -113,7 +113,7 @@
         .category-buttons-single{
             width: auto;
             padding: 10px 18px;
-            font-weight: bold;
+            font-family: 'nexa-bold';
             text-transform: uppercase;
             &:not(:last-child){
                 margin-right: 20px;
@@ -143,13 +143,101 @@
             justify-content: flex-start;
             margin-bottom: 20px;
             .category-buttons-single{
-                min-width: 170px;
+                min-width: 171px;
                 &:not(:last-child){
                     margin-right: 10.54px;
                 }
             }
             &::-webkit-scrollbar {
                 display: none;
+            }
+        }
+    }
+}
+/* more articles slider */
+.more-articles-section{
+    margin-bottom: 50px;
+    .more-articles{
+        background-color: theme-color("gray-bg-1");
+        position: relative;
+
+        .slider-nav{
+            position: absolute;
+            bottom: 55px;
+        }
+
+        &-single{
+            .wraper{
+                display: flex;
+            }
+            &-content{
+                margin-top: auto;
+                margin-bottom: auto;
+                width: 45%;
+                padding: 0px 57px 0px 0px;
+                .content-title{
+                    .title{
+                        line-height: 45px;
+                        a{
+                            font-size: 35px;
+                            font-family: 'nexa-bold';
+                            color: theme-color("primary");
+                        }
+                    }
+                }
+                .content-description{
+                    font-size: 20px;
+                    line-height: 32px;
+                }
+            }
+            &-image{
+                width: 55%;
+
+                img{
+                    height: 498px;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+    @media(max-width:768px){
+        padding: 0 16px;
+        .more-articles-heading{
+            padding: 33.5px 0 10.5px !important;
+            margin: 0;
+        }
+        .more-articles{
+            &-single{
+                .wraper{
+                    flex-direction: column;
+                    margin: 0 !important;
+                }
+                &-content, &-image{
+                    width: 100%;
+                }
+                &-content{
+                    padding: 36px 31px 36px 14px;
+
+                    .content-title{
+                        .title{
+                            margin-bottom: 10px;
+                            line-height: 25px;
+                            a{
+                                font-size: 20px !important;
+                            }
+                        }
+                    }
+                    .content-description{
+                        font-size: 14px;
+                        line-height: 18px;
+                    }
+                }
+                &-image{
+                    img{
+                        height: 190px;
+                    }
+                }
             }
         }
     }

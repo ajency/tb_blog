@@ -1,4 +1,4 @@
-<div class="mb-5 container explore-articles">
+<div class="container explore-articles">
     <div class="section-heading latest-articles-title text-center">Explore Articles</div>
         <?php
             $args = array(
