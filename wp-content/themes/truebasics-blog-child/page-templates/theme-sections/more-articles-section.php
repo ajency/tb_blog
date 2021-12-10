@@ -28,10 +28,11 @@
 						<div class="wraper">
 							<div class="more-articles-single-content">
 								<div class="content-title">
-									<h2 class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+									<h2 class="hide-mob title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php echo wp_trim_words(get_the_title(), 8); ?></a></h2>
+									<h2 class="hide-desk title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php echo wp_trim_words(get_the_title(), 7); ?></a></h2>
 								</div>
 								<div class="content-description hide-mob"><?php echo tb_get_excerpt(240); ?></div>
-								<div class="content-description hide-desk"><?php echo tb_get_excerpt(140); ?></div>
+								<div class="content-description hide-desk"><?php echo tb_get_excerpt(110); ?></div>
 							</div>
 							<div class="more-articles-single-image"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 								<?php 

@@ -76,3 +76,24 @@ $(function() {
         ]
     });
 });
+
+/* footer */
+$("footer .wrap").addClass("container");
+$(".footer-widgets .wrap").addClass("container");
+
+//accordions
+$(".footer-widget-area .about").addClass("accordion");
+$(".footer-widget-area .about .widget-title").addClass("accordion-header");
+$(".footer-widget-area .about .about-desc").addClass("accordion-content");
+
+$(".footer-widget-area .widget_nav_menu .widget-wrap").addClass("accordion");
+$(".footer-widget-area .widget_nav_menu .widget-wrap .widget-title").addClass("accordion-header");
+$(".footer-widget-area .widget_nav_menu .widget-wrap nav").addClass("accordion-content");
+
+$(".footer-widget-area .subscribe-form").addClass("accordion");
+$(".footer-widget-area .subscribe-form .widget-title").addClass("accordion-header");
+$(".footer-widget-area .subscribe-form .footer-form").addClass("accordion-content");
+
+$(document).on("touchstart", ".accordion-header", function() {
+	$(this).parent().toggleClass("show");
+});
