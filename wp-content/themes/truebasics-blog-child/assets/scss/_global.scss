@@ -134,3 +134,11 @@
 		}
 	}
 }
+
+/* container */
+.smaller-container{
+	@media(min-width:1300px){
+		padding-left: 45px !important;
+		padding-right: 45px !important;
+	}
+}

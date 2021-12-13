@@ -97,3 +97,10 @@ $(".footer-widget-area .subscribe-form .footer-form").addClass("accordion-conten
 $(document).on("touchstart", ".accordion-header", function() {
 	$(this).parent().toggleClass("show");
 });
+/* read these next section */
+$(".read-these-next .article-link").hover(function(){
+	$(this).parents().eq(0).toggleClass("hovered");
+});
+$(".read-these-next .title a").hover(function(){
+	$(this).parents().eq(3).toggleClass("hovered");
+});
