@@ -47,6 +47,8 @@ get_header();
 								<?php
 								if ( has_post_thumbnail() ) :
 								the_post_thumbnail( 'large', ['title' => get_the_title()] );
+								else : ?>
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/default.jpg" alt="default" title="default"/> <?php
 								endif;
 								?>
 							</div>

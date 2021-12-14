@@ -143,3 +143,36 @@
 		padding-right: 15.5px !important;
 	}
 }
+
+/* pagination */
+.pagination-nav{
+	display: flex;
+	justify-content: center;
+	.pagination{
+		margin: 30px 0 50px;
+		border-radius: 0;
+
+		.page-item{
+			.page-link{
+				border: none !important;
+				border-radius: 3px;
+				box-shadow: none !important;
+				background-color: theme-color("gray-bg-1");
+				color: theme-color("primary");
+				&:hover{
+					background-color: theme-color("primary");
+					color: #fff;
+				}
+			}
+			&.active{
+				.page-link{
+					background-color: theme-color("primary");
+					color: #fff;
+				}
+			}
+			&:not(:last-child){
+				margin-right: 10px;
+			}
+		}
+	}
+}

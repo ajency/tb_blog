@@ -47,7 +47,6 @@ $(".article-single .article-single-image a").hover(function(){
 $(".article-single .article-single-content .article-single-content-title .title a").hover(function(){
     $(this).parents().eq(4).toggleClass("hovered");
 });
-
 /* more articles slider */
 $(function() {
     $(".more-articles-slider").slick({
@@ -104,3 +103,200 @@ $(".read-these-next .article-link").hover(function(){
 $(".read-these-next .title a").hover(function(){
 	$(this).parents().eq(3).toggleClass("hovered");
 });
+
+/* category page */
+let canBeLoaded = true;
+function get_category_posts(category_page, remove_posts = false){
+	var url = new URL(window.location.href);
+	var data = {
+		'action': 'fetch_category_page_articles',
+		'page' : category_page,
+		'category' : $(".category-list-view").data('category'),
+		'type' : $(".category-list-view").data('type'),
+		'taxonomy' : $(".category-list-view").data('taxonomy'),
+		'taxtype' : $(".category-list-view").data('taxtype'),
+		'search' : $("#search").val(),
+	};
+	$.ajax({
+		url : ajax_params.url,
+		data:data,
+		type:'POST',
+		beforeSend: function( xhr ){
+			$('.category-list-view .category-loader').addClass("d-flex").removeClass("d-none");
+			setParam('page', category_page);
+		},
+		success:function(data){
+			if(remove_posts){
+				$(".recent-post:first")
+				$(".category-list-view").html('');
+				$(".category-loader").addClass("d-none").removeClass("d-block");
+			}else{
+				$(".category-filler").parent().remove();
+				$(".category-loader").remove();
+			}
+			
+			if( data ) {
+				$('.category-list-view').append( data ); 
+				canBeLoaded = true; 
+				category_page++;
+				if(remove_posts){
+					$([document.documentElement, document.body]).animate({
+				        scrollTop: $(".category-list-view").offset().top
+				    }, 1000);
+				}
+			}
+		}
+	});
+}
+function setParam(param, mode = ''){
+	var url = new URL(location.href);
+	if(mode){
+		url.searchParams.set(param, mode);
+	}
+	else{
+		url.searchParams.delete(param);
+	}
+	url.search = url.searchParams.toString();
+	var new_url = url.toString(); 
+	window.history.pushState('page2', 'Title', new_url);
+}
+
+// Returns an array of maxLength (or less) page numbers
+// where a 0 in the returned array denotes a gap in the series.
+// Parameters:
+//   totalPages:     total number of pages
+//   page:           current page
+//   maxLength:      maximum size of returned array
+function getPageList(totalPages, page, maxLength) {
+	page = parseInt(page);
+	if (maxLength < 5) throw "maxLength must be at least 5";
+
+	function range(start, end) {
+		return Array.from(Array(end - start + 1), (_, i) => i + start);
+	}
+
+	var sideWidth = maxLength < 9 ? 1 : 2;
+	var leftWidth = (maxLength - sideWidth * 2 - 3) >> 1;
+	var rightWidth = (maxLength - sideWidth * 2 - 2) >> 1;
+	if (totalPages <= maxLength) {
+		// no breaks in list
+		return range(1, totalPages);
+	}
+	if (page <= maxLength - sideWidth - 1 - rightWidth) {
+		// no break on left of page
+		return range(1, maxLength - sideWidth - 1)
+		.concat([0])
+		.concat(range(totalPages - sideWidth + 1, totalPages));
+	}
+	if (page >= totalPages - sideWidth - 1 - rightWidth) {
+		// no break on right of page
+		return range(1, sideWidth)
+		.concat([0])
+		.concat(
+		range(totalPages - sideWidth - 1 - rightWidth - leftWidth, totalPages)
+		);
+	}
+	// Breaks on both sides
+	return range(1, sideWidth)
+	.concat([0])
+	.concat(range(page - leftWidth, page + rightWidth))
+	.concat([0])
+	.concat(range(totalPages - sideWidth + 1, totalPages));
+}
+function isScrolledIntoView(elem)
+{
+    var scrollTop = $(window).scrollTop();
+    var scrollBottom = $(window).scrollTop() + $(window).height();
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+    return ((elemTop - $(window).height() + 100 < scrollTop) && (elemBottom + $(window).height() > scrollBottom));
+}
+$(function() {
+	// Number of items and limits the number of items per page
+	var numberOfItems = $(".category-list-view").data('count');
+	var limitPerPage = 24;
+	// Total pages rounded upwards
+	var totalPages = Math.ceil(numberOfItems / limitPerPage);
+	// Number of buttons at the top, not counting prev/next,
+	// but including the dotted buttons.
+	// Must be at least 5:
+	var paginationSize = 7;
+	var currentPage;
+
+	function showPage(whichPage) {
+		$(".category-loader").addClass("d-block").removeClass("d-none");
+		if (whichPage < 1 || whichPage > totalPages) return false;
+		currentPage = whichPage;
+		$(".category-list-view .category-post-row").css('visibility', 'hidden');
+		// Replace the navigation items (not prev/next):
+		$(".pagination li").slice(1, -1).remove();
+		if(whichPage == 1){
+			$("#previous-page").addClass("disabled");
+		}
+		else{
+			$("#previous-page").removeClass("disabled");
+		}
+		if(whichPage == totalPages){
+			$("#next-page").addClass("disabled");
+		}
+		else{
+			$("#next-page").removeClass("disabled");
+		}
+		getPageList(totalPages, currentPage, paginationSize).forEach(item => {
+			$("<li>").addClass(
+				"page-item " +
+				(item ? "current-page " : "") +
+				(item === currentPage ? "active " : "")
+			).attr('data-page', item).append(
+				$("<a>").addClass("page-link").attr({
+					href: "javascript:void(0)"
+				})
+				.text(item || "...")
+			).insertBefore("#next-page");
+		});
+		get_category_posts(whichPage, true);
+		return true;
+	}
+	if($(".category-list-view").length && $(window).width() > 769){
+
+		var url = new URL(window.location.href);
+		var page = url.searchParams.get("page");
+		currentPage = page;
+		if(!$(".pagination li[data-page='"+page+"']").hasClass('active')){
+			$(".pagination li[data-page='"+page+"']").addClass('active');
+		}
+  	}
+	// Use event delegation, as these items are recreated later
+	$(document).on("click", ".pagination li.current-page:not(.active)", function(e) {
+		e.preventDefault();
+		return showPage(+$(this).text());
+	});
+	$(document).on("click", ".pagination #next-page:not(.disabled)", function(e) {
+		e.preventDefault();
+		return showPage(currentPage + 1);
+	});
+	$(document).on("click", ".pagination #previous-page:not(.disabled)", function(e) {
+		e.preventDefault();
+		return showPage(currentPage - 1);
+	});
+});
+
+$(window).scroll(function(){
+	if($(".category-list-view").length && $(window).width() < 769 && ($(window).scrollTop() > $(".category-list-view .category-post-row .article-single:last").position().top) && canBeLoaded == true){
+		canBeLoaded = false;
+		var url = new URL(window.location.href);
+		var page = url.searchParams.get("page");
+		page = parseInt(page) + 1;
+		get_category_posts(page, false);
+	}
+});
+if($(".category-list-view").length && $(window).width() < 769){
+	var url = new URL(window.location.href);
+	var page = url.searchParams.get("page");
+	if(page){
+		get_category_posts(page);
+	}
+	else{
+		get_category_posts(1);
+	}
+}
