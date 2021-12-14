@@ -17,7 +17,7 @@
 get_header(); 
 ?>
 
-<div class="single-post">
+<div class="single-post-wide">
 	<div class="header_image position-relative">
 		<div class="header">
 			<div class="container">

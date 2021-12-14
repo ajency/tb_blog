@@ -499,7 +499,6 @@ body{
         &-container{
             display: flex;
             align-items: center;
-            grid-gap:10px;
         }
         &-single{
             height: 238px;
@@ -507,6 +506,9 @@ body{
             border-radius: 10px;
             flex-basis: 50%;
             position: relative;
+            &:not(:last-child){
+                margin-right: 20px;
+            }
             img{
                 height: 238px;
                 width: 100%;
@@ -536,6 +538,9 @@ body{
         @media(max-width:768px){
             &-single{
                 height: 114px;
+                &:not(:last-child){
+                    margin-right: 10px;
+                }
                 img{
                     height: 114px;
                 }
