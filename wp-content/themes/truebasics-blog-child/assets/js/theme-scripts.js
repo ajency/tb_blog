@@ -300,3 +300,6 @@ if($(".category-list-view").length && $(window).width() < 769){
 		get_category_posts(1);
 	}
 }
+
+/* single blog page */
+$(".article-tags a").addClass("article-tags__tag");
