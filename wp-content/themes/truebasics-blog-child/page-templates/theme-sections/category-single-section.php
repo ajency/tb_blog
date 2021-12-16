@@ -2,10 +2,10 @@
 $category = get_queried_object();
 /* $hindi_cat = get_category_by_slug('hindi'); */
 $args = array(
-	'posts_per_page' => 24,
+	'posts_per_page' => 15,
 	'post_type' => array('post'),
 	'post_status' => 'publish',
-	'cat' => $category->term_id,
+	'category__in' => $category->term_id,
 );
 if(isset($_GET['page'])){
 	$args['paged'] = $_GET['page'];

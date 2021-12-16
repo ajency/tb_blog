@@ -2,7 +2,7 @@
 $category = get_queried_object();
 /* $hindi_cat = get_category_by_slug('hindi'); */
 $args = array(
-	'posts_per_page' => 24,
+	'posts_per_page' => 15,
 	'post_type' => array('post'),
 	'post_status' => 'publish',
 	'tag_id' => $category->term_id,

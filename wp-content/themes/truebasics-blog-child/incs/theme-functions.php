@@ -60,7 +60,7 @@ function tb_get_excerpt($limit) {
 	return $excerpt."...";
 }
 function tb_get_pagination($totalposts, $currentPage){
-	$limitPerPage = 24;
+	$limitPerPage = 15;
 	// Total pages rounded upwards
 	$totalPages = ceil($totalposts / $limitPerPage);
 	// Number of buttons at the top, not counting prev/next,
