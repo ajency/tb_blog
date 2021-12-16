@@ -61,14 +61,18 @@ footer{
     line-height: 24px;
     color: theme-color("primary");
     .wrap{
+        &::before, &::after{
+            content: none;
+        }
         &.container{
             display: flex;
             justify-content: space-between;
+
             .footer-widget-area{
                 padding: 0;
-                &:not(:nth-child(4)){
+                /* &:not(:nth-child(4)){
                     padding-right: 30px;
-                }
+                } */
                 &.footer-widgets-1{
                     width:40%;
                 }
@@ -76,7 +80,7 @@ footer{
                     width:14%;
                 }
                 &.footer-widgets-4{
-                    width:32%;
+                    width:auto;
                 }
                 .widget-title {
                     font-family: 'nexa-bold';
@@ -175,11 +179,12 @@ footer{
                         .widget-title{
                             margin-bottom: 14px;
                             font-size: 14px;
+                            padding: 0;
                         }
                         .wraper{
                             a{
                                 &:not(:last-child){
-                                    margin-bottom: 14px;
+                                    margin-bottom: 10px;
                                 }
                                 &:before{
                                         display:inline-block;
@@ -207,8 +212,12 @@ footer{
                         margin: 0;
                         border-top: 1px solid theme-color("gray-bg-4");
                         flex-direction: column;
+                        .widget-title{
+                            padding: 0;
+                        }
                         .socials-box{
                             margin-top: 13px;
+                            margin-left: 0;
                         }
                     }
                     .footer-form{
@@ -297,7 +306,7 @@ footer{
         input{
             box-shadow: none !important;
             outline: none !important;
-            border-radius: 100px;
+            border-radius: 100px 0 0 100px;
             border: 1px solid #c6c6c6;
             padding: 11px 14px;
             font-size: 14px;
@@ -305,6 +314,8 @@ footer{
             color: theme-color("primary") !important;
             font-family: 'nexa-light' !important;
             height: 40px;
+            width: 186px;
+            margin-right: 95.91px;
 
             &::-webkit-input-placeholder{
                 letter-spacing: .16px;
@@ -327,6 +338,7 @@ footer{
             letter-spacing: .16px;
             color: #fff !important;
             margin: 0 !important;
+            outline: none !important;
         }
         .frm_submit{
             position: absolute;

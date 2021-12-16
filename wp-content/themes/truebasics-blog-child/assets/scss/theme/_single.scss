@@ -1,5 +1,6 @@
 /* breadcrumb */
 .breadcrumbs-wrapper{
+    margin-top: 21px;
 	.breadcrumbs-inside{ 
 		margin: 2px 0 28px;
 		a{
@@ -38,6 +39,9 @@
     		font-weight: 600;
 		}
 	}
+    @media(max-width:768px){
+        margin-top: 10px;
+    }
 }
 /* author top bar */
 .author-bar-top, .author-bar-bottom{
