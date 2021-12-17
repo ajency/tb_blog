@@ -16,10 +16,10 @@ add_shortcode( 'read-these-next', function(){ ?>
 					'category_name' => $currentCat,
 					'post__not_in'   => array( get_the_ID() ),
 					'no_found_rows'  => true, 
-					'date_query'    => array(
+					/* 'date_query'    => array(
 						'column'  => 'post_date',
 						'before'   => get_the_date('Y-m-d')
-					),
+					), */
 				);
 	// 			foreach($args as $val){
 	//   if(!is_array($val)){

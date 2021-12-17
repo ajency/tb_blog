@@ -24,10 +24,14 @@ $authorId = $user_info->ID;
             </p>
         </div>
         <div class="author__social">
+            <?php 
+                $postUrl = 'http' . ( isset( $_SERVER['HTTPS'] ) ? 's' : '' ) . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; 
+                $title = urlencode(html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8'));
+            ?>
             <!-- twitter -->
-			<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>&amp;via=TruebasicsBlog" class="author__social__icons" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>&amp;via=TrueBasics" class="author__social__icons" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
             <!-- linkedin -->
-			<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $postUrl; ?>&amp;title=<?php echo $title; ?>&amp;source=TruebasicsBlog" class="author__social__icons" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+			<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $postUrl; ?>&amp;title=<?php echo $title; ?>&amp;source=TrueBasics" class="author__social__icons" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
             <!-- facebook -->
             <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" class="author__social__icons" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
         </div>

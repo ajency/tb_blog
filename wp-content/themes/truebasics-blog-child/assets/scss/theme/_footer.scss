@@ -87,6 +87,7 @@ footer{
                     color: theme-color("primary");
                     font-size: 16px;
                     line-height: 19px;
+                    font-weight: 400;
                     margin-bottom: 21px;
                 }
                 .widget{
@@ -324,6 +325,9 @@ footer{
 
             &:focus{
                 border-color: #c6c6c6 !important;
+            }
+            @media(max-width:768px){
+                width: calc(100% - 95.91px);
             }
         }
         button{

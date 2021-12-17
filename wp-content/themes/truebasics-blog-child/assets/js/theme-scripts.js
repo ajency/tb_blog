@@ -80,6 +80,11 @@ $(function() {
 $("footer .wrap").addClass("container");
 $(".footer-widgets .wrap").addClass("container");
 
+var el1 = document.querySelector('.footer-widgets .footer-widgets-2 .widget-title');
+var el2 = document.querySelector('.footer-widgets .footer-widgets-3 .widget-title');
+el1.outerHTML = '<h4 class="widgettitle widget-title">' + el1.innerHTML + '</h4>';
+el2.outerHTML = '<h4 class="widgettitle widget-title">' + el2.innerHTML + '</h4>';
+
 //accordions
 $(".footer-widget-area .about").addClass("accordion");
 $(".footer-widget-area .about .widget-title").addClass("accordion-header");
@@ -499,3 +504,17 @@ if($(".category-list-view").length && $(window).width() < 769){
 
 /* single blog page */
 $(".article-tags a").addClass("article-tags__tag");
+
+/* replace with spaces */
+$(".article-single .article-single-content .article-single-content-description").each(function() {
+	var str = $(this).html().replace(/&nbsp;/g,' ');
+	$(this).html(str);
+});
+$(".latest-articles-single .latest-articles-single-content .content-description").each(function() {
+	var str = $(this).html().replace(/&nbsp;/g,' ');
+	$(this).html(str);
+});
+$("p").each(function() {
+	var str = $(this).html().replace(/&nbsp;/g,' ');
+	$(this).html(str);
+});

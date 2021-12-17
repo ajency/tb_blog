@@ -72,14 +72,14 @@
 					letter-spacing: 0.6px;
 					text-transform: uppercase;
 					color:theme-color("primary") !important;
-					transition: opacity 250ms ease-in-out;
+					transition: color 250ms ease-in-out;
 
 					@media(max-width:768px){
 						color: theme-color("primary") !important;
 					}
 
 					&:hover{
-						opacity:0.9;
+						color: theme-color("hover") !important;
 					}
 				}
 			}
@@ -110,14 +110,14 @@
 			&__icons{
 				font-size: 23px;
 				color:theme-color("primary") !important;
-				transition: opacity 250ms ease-in-out;
+				transition: color 250ms ease-in-out;
 
                 &:not(:last-child){
                     margin-right: 15px;
                 }
 
 				&:hover{
-					opacity: 0.9;
+					color:theme-color("hover") !important;
 				}
 			}
 		}
@@ -331,14 +331,14 @@
                             line-height: 26px;
                             color:theme-color("primary");
                             font-family:'nexa-bold';
-                            transition:opacity 250ms ease-in-out;
+                            transition: color 250ms ease-in-out;
                             i{
                                 font-size: 23px;
                                 cursor: pointer;
                             }
                             &:hover{
                                 text-decoration: none;
-                                opacity: 0.9;
+                                color: theme-color("hover") !important;
                             }
                         }
                         i{
@@ -387,9 +387,9 @@
                         color:theme-color("primary");
                         text-decoration: underline !important;
                         text-decoration-thickness: 8% !important;
-                        transition: opacity 250ms ease-in-out;
+                        transition: color 250ms ease-in-out;
                         &:hover{
-                            opacity: 0.9;
+                            color: theme-color("hover") !important;
                         }
                         &:not(:last-child){
                             &:after{

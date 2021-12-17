@@ -368,17 +368,18 @@ body{
                     color: #fff;
                 }
                 span{
+                    &:not(:last-child){
+                        margin-right: 7px;
+                    }
                     &.dot{
                         font-size: 7px;
                         position: relative;
+                        margin-right: 10px;
                         i{
                             position: absolute;
                             left: -4px;
                             top: 0;
                         }
-                    }
-                    &:not(:last-child){
-                        margin-right: 7px;
                     }
                 }
                 .blog-title {
@@ -582,3 +583,18 @@ body{
             }
         }
     }
+
+/* quadmenu */
+#quadmenu{
+    .quadmenu-row{
+        li{
+            padding: 0 !important;
+        }
+    }
+}
+/* css for iOS */
+@supports (-webkit-touch-callout: none) {
+    #quadmenu:not(.quadmenu-is-horizontal) .quadmenu-navbar-nav li.quadmenu-item>a>.quadmenu-item-content>.quadmenu-caret:before{
+        margin-top: -7px !important;
+    }
+ }

@@ -68,9 +68,9 @@ get_header();
 							<div class="share share-desktop">
 								<div class="share-icons">
 									<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" class="share-icons__icon" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i>Share on Facebook</a>
-									<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>&amp;via=TruebasicsBlog" class="share-icons__icon" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>Share on Twitter</a>
+									<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>&amp;via=TrueBasics" class="share-icons__icon" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>Share on Twitter</a>
 									<!-- linkedin -->
-									<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $postUrl; ?>&amp;title=<?php echo $title; ?>&amp;source=TruebasicsBlog" class="share-icons__icon" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i>Share on LinkedIn</a>
+									<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $postUrl; ?>&amp;title=<?php echo $title; ?>&amp;source=TrueBasics" class="share-icons__icon" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i>Share on LinkedIn</a>
 									<!-- Whatsapp sharing onn desktop -->
 									<!-- <a href="https://web.whatsapp.com/send?text=<?php /* echo $postUrl; */ ?>" id="whatsapp-desktop" class="whatsapp social boxed-icon white-fill" data-href="<?php /* echo $postUrl; */ ?>" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a> -->
 								</div>
