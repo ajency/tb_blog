@@ -3,12 +3,22 @@
 Template Name: Search Page
 */
 get_header(); 
+
 global $query_string;
 
 wp_parse_str( $query_string, $search_query );
 //$search_query['paged'] = $search_query['page'];
 /* $search_query[$query_split[0]] = urldecode($query_split[1]); */
-$search = new WP_Query( $search_query );
+$search_args = ( array(
+	'posts_per_page'  => 15,
+	's'               => get_search_query(),
+) );
+if (isset($_GET['page'])){
+	$search_args['paged'] = $_GET['page'];
+}
+
+$search = new WP_Query ($search_args);
+
 ?>	
 <div class="header_image position-relative">
 	<div class="header">
@@ -26,7 +36,7 @@ $search = new WP_Query( $search_query );
 		<?php echo $search->found_posts . ' Articles Found for '.get_search_query(); ?>
 	</p>
 	<?php if ($search->found_posts) : ?>
-	<div class="latest-reads category-list-view position-relative" data-category="<?php /* echo $category->term_id; */ ?>" data-type="post" data-count="<?php echo $wp_query->found_posts; ?>">
+	<div class="latest-reads category-list-view position-relative" data-taxonomy="search_page" data-type="post" data-count="<?php echo $wp_query->found_posts; ?>" data-search="<?php echo get_search_query(); ?>">
 		<div class="category-post-row row m-0">
 			<?php if( $search->have_posts() ) :
 				while( $search->have_posts() ): $search->the_post(); ?>
