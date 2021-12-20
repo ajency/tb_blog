@@ -35,6 +35,13 @@ $(".category-buttons-single").click(function(){
                     $(".category-buttons-single").removeClass("category-buttons-single-active");
                     button.addClass("category-buttons-single-active");
                 }
+				/* single component */
+				$(".article-single .article-single-image a").hover(function(){
+					$(this).parents().eq(2).toggleClass("hovered");
+				});
+				$(".article-single .article-single-content .article-single-content-title .title a").hover(function(){
+					$(this).parents().eq(4).toggleClass("hovered");
+				});
             }
         });
     }
@@ -150,6 +157,13 @@ function get_category_posts(category_page, remove_posts = false){
 				    }, 1000);
 				}
 			}
+			/* single component */
+			$(".article-single .article-single-image a").hover(function(){
+				$(this).parents().eq(2).toggleClass("hovered");
+			});
+			$(".article-single .article-single-content .article-single-content-title .title a").hover(function(){
+				$(this).parents().eq(4).toggleClass("hovered");
+			});
 		}
 	});
 }
@@ -346,6 +360,13 @@ function get_tag_posts(category_page, remove_posts = false){
 				    }, 1000);
 				}
 			}
+			/* single component */
+			$(".article-single .article-single-image a").hover(function(){
+				$(this).parents().eq(2).toggleClass("hovered");
+			});
+			$(".article-single .article-single-content .article-single-content-title .title a").hover(function(){
+				$(this).parents().eq(4).toggleClass("hovered");
+			});
 		}
 	});
 }
